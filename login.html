@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazon Search</title>
+</head>
+<body>
+    <h2>Amazon Search</h2>
+    <input type="text" id="query" placeholder="Search for...">
+    <button onclick="searchAmazon()">Search</button>
+    <div id="result"></div>
+    <script>
+        function searchAmazon() {
+            const query = document.getElementById('query').value;
+            fetch('/search', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({query: query})
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('result').innerText = data.result;
+            });
+        }
+    </script>
+</body>
+</html>

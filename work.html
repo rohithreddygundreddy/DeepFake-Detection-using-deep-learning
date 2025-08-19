@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KhetSewa - On-Demand Farm Equipment</title>
+    <style>
+        /* --- Universal Styles & Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        :root {
+            --primary-color: #003366; /* Navy Blue */
+            --secondary-color: #333333; /* Charcoal Gray */
+            --accent-color: #32CD32; /* Lime Green */
+            --light-gray: #f4f4f4;
+            --white-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--secondary-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        h1, h2 {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--white-color);
+            padding: 10px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #28a428;
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            background: var(--white-color);
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav ul li {
+            margin-left: 25px;
+        }
+
+        .main-nav ul li a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: var(--light-gray);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .search-form {
+            display: flex;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .search-form input[type="text"], .search-form select {
+            padding: 15px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            flex-grow: 1;
+        }
+        
+        .search-form input[type="text"] {
+            border-radius: 8px 0 0 8px;
+        }
+
+        .search-form .btn {
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* --- How It Works Section --- */
+        .how-it-works {
+            padding: 80px 0;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            gap: 30px;
+        }
+
+        .step {
+            max-width: 300px;
+        }
+
+        .step-icon {
+            background: var(--accent-color);
+            color: var(--white-color);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 auto 20px auto;
+        }
+        
+        .step h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* --- Call to Action Section --- */
+        .cta-section {
+            background: var(--primary-color);
+            color: var(--white-color);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--white-color);
+        }
+
+        .cta-section .btn {
+            background: var(--white-color);
+            color: var(--accent-color);
+            margin-top: 20px;
+        }
+        
+        .cta-section .btn:hover {
+            background: #eee;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background: var(--secondary-color);
+            color: var(--white-color);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer .container {
+            display: flex;
+            justify-content: space-around;
+            text-align: left;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--white-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #555;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+            }
+
+            .main-nav {
+                margin-top: 15px;
+            }
+            
+            .main-nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .search-form input[type="text"], .search-form select, .search-form .btn {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+            .steps-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-col {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">Khet<span>Sewa</span></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" class="btn">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Reliable Farm Equipment, On-Demand</h1>
+            <p>Find and book tractors, harvesters, JCBs, and more from trusted owners in your area. Get the job done faster with KhetSewa.</p>
+            <form class="search-form">
+                <select name="equipment">
+                    <option value="">Select Equipment Type</option>
+                    <option value="tractor">Tractor</option>
+                    <option value="harvester">Harvester</option>
+                    <option value="jcb">JCB</option>
+                    <option value="rotavator">Rotavator</option>
+                </select>
+                <input type="text" placeholder="Enter your District or PIN Code">
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works for Farmers</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h3>Find Your Equipment</h3>
+                    <p>Search for the machinery you need based on your specific location.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h3>Book a Time Slot</h3>
+                    <p>Select a trusted owner and book a date and time that works for you.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h3>Confirm & Coordinate</h3>
+                    <p>Connect with the owner via our secure call feature to finalize details.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action for Owners -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Are You an Equipment Owner?</h2>
+            <p>Turn your machinery into a source of income. Join our network of trusted service providers.</p>
+            <a href="#" class="btn">List Your Equipment</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-col">
+                <h4>KhetSewa</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>For Farmers</h4>
+                <ul>
+                    <li><a href="#">How to Book</a></li>
+                    <li><a href="#">Find Equipment</a></li>
+                    <li><a href="#">Help & FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>For Owners</h4>
+                <ul>
+                    <li><a href="#">List Your Equipment</a></li>
+                    <li><a href="#">Subscription Plans</a></li>
+                    <li><a href="#">Owner FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 KhetSewa. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
