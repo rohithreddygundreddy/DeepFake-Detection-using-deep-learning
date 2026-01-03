@@ -1,0 +1,11 @@
+.pkl
+
+# Outputs
+outputs/
+results/
+
+# Python
+__pycache__/
+*.pyc
+
+
